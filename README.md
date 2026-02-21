@@ -79,10 +79,3 @@ Run 2 replicas of the container as a docker service. This command must be run fr
 ```bash
 docker service create --replicas 2 --name example-com --publish published=8000,target=80,mode=host --mount type=bind,source=/srv/example.com/www,destination=/var/www/html rsubr/php-apache-ubuntu:noble
 ```
-
-# TODO
-
-* Instead of AWS ECS, this setup uses portainer.io or other docker swarm manager.
-* Autoscaling is not possible with current architecture, needs ECS.
-* Improve documentation.
-* Documentation for EFS issues and workaround using syncthing. 
