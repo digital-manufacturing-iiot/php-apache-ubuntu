@@ -28,6 +28,6 @@ jobs:
       - name: build multi-arch image and push to docker hub
         run: |
           docker buildx build --push \
-            --tag iiot/php-apache-ubuntu:noble  \
-            --tag iiot/php-apache-ubuntu:24.04  \
+            --tag digitaliiot/php-apache-ubuntu:noble  \
+            --tag digitaliiot/php-apache-ubuntu:24.04  \
             --platform linux/amd64,linux/arm64 .
