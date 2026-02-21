@@ -43,7 +43,7 @@ Docker image containing Ubuntu 24.04 LTS core with Apache 2.4 and PHP 8.3. This 
 To build:
 
 ```bash
-docker build --no-cache -t rsubr/php-apache-ubuntu:noble .
+docker build --no-cache -t digitaliiot/php-apache-ubuntu:noble .
 ```
 
 # Running
@@ -53,7 +53,7 @@ docker build --no-cache -t rsubr/php-apache-ubuntu:noble .
 Run with internal document root to reveal Apache/PHP config. See http://localhost/index.php and http://localhost/.config/
 
 ```bash
-docker run --name=test -p 80:80 rsubr/php-apache-ubuntu:noble
+docker run --name=test -p 80:80 digitaliiot/php-apache-ubuntu:noble
 ```
 
 ## Example 2: Testing WordPress
@@ -61,7 +61,7 @@ docker run --name=test -p 80:80 rsubr/php-apache-ubuntu:noble
 Run a WordPress site from /srv/example.com/www
 
 ```bash
-docker run --name=example-com -v /srv/example.com/www:/var/www/html -p 80:80 rsubr/php-apache-ubuntu:noble
+docker run --name=example-com -v /srv/example.com/www:/var/www/html -p 80:80 digitaliiot/php-apache-ubuntu:noble
 ```
 
 ## Example 3: Using custom apache2 and php config
@@ -69,7 +69,7 @@ docker run --name=example-com -v /srv/example.com/www:/var/www/html -p 80:80 rsu
 Run a WordPress site from /srv/example.com/www, but this time use custom apache and php config from /srv/example.com/etc/{apache,php}
 
 ```bash
-docker run --name=example-com -v /srv/example.com/www:/var/www/html -v /srv/example.com/etc/apache2:/etc/apache2:ro -v /srv/example.com/etc/php:/etc/php:ro -p 80:80 rsubr/php-apache-ubuntu:noble
+docker run --name=example-com -v /srv/example.com/www:/var/www/html -v /srv/example.com/etc/apache2:/etc/apache2:ro -v /srv/example.com/etc/php:/etc/php:ro -p 80:80 digitaliiot/php-apache-ubuntu:noble
 ```
 
 ## Example 4: Running as a docker service in a docker swarm
@@ -77,5 +77,5 @@ docker run --name=example-com -v /srv/example.com/www:/var/www/html -v /srv/exam
 Run 2 replicas of the container as a docker service. This command must be run from a docker swarm manager node. AWS ALB and Target Group must be created to route traffic for example.com to this container:
 
 ```bash
-docker service create --replicas 2 --name example-com --publish published=8000,target=80,mode=host --mount type=bind,source=/srv/example.com/www,destination=/var/www/html rsubr/php-apache-ubuntu:noble
+docker service create --replicas 2 --name example-com --publish published=8000,target=80,mode=host --mount type=bind,source=/srv/example.com/www,destination=/var/www/html digitaliiot/php-apache-ubuntu:noble
 ```
