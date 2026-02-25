@@ -31,6 +31,7 @@ RUN apt-get update && \
         php-xmlrpc \
         php-yaml \
         php-zip \
+        php-imagick \
 # Ensure apache can bind to 80 as non-root
         libcap2-bin && \
     setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2 && \
