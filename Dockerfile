@@ -10,6 +10,7 @@ RUN apt-get update && \
     apt-get -y install \
         apache2 \
         composer \
+        cups-client \
         git \
         libapache2-mod-php \
         libapache2-mod-auth-openidc \
